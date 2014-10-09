@@ -12,9 +12,32 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    UIRemoteNotificationType types = (UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeSound );
+    
+    //注册消息推送
+    [[UIApplication sharedApplication]registerForRemoteNotificationTypes:types];
+    
     // Override point for customization after application launch.
     return YES;
 }
+
+//获取DeviceToken成功
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSLog(@"DeviceToken: {%@}",deviceToken);
+    //这里进行的操作，是将Device Token发送到服务端
+    
+}
+
+//注册消息推送失败
+- (void)application:(UIApplication *)application
+didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"Register Remote Notifications error:{%@}",error);
+}
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
