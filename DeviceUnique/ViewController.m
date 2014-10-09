@@ -129,6 +129,7 @@
     NSString *outstring = [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x", *ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5)];
     free(buf);
     return [outstring uppercaseString];
+    
 }
 
 - (NSString *) whatismyipdotcom
